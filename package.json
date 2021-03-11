@@ -1,25 +1,29 @@
 {
-  "name": "wikistack",
+  "name": "clear",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon ./path/to/your/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juanauli/wikistack.git"
+    "url": "git+https://github.com/michaelrgant/wikistack.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/juanauli/wikistack/issues"
+    "url": "https://github.com/michaelrgant/wikistack/issues"
   },
-  "homepage": "https://github.com/juanauli/wikistack#readme",
+  "homepage": "https://github.com/michaelrgant/wikistack#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "html-template-tag": "^3.2.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.7"
-  }
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {},
+  "description": ""
 }
