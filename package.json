@@ -23,11 +23,7 @@
     "nodemon": "^2.0.7",
     "pg": "^8.5.1",
     "sequelize": "^6.5.0"
-<<<<<<< HEAD
-  }
-=======
   },
   "devDependencies": {},
   "description": ""
->>>>>>> 4f8cd181c9993ad31b6d187928c08ad8fcb46ce4
 }
