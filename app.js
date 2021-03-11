@@ -7,9 +7,6 @@ const router = require('./routes/users')
 const wikiRouter = require('./routes/wiki')
 const { db, Page, User } = require('./models');
 
-app.use('/wiki', wikiRouter);
-app.use('/users', router);
-
 db.authenticate()
   .then(() => {
     console.log('connected to the database');
@@ -18,9 +15,14 @@ db.authenticate()
 app.use(morgan("dev"));
 app.use(express.static(__dirname + "public"));
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use('/wiki', wikiRouter);
+app.use('/users', router);
+
 app.get("/", (req, res, next) => {
-  res.send(layout(""));
+  res.redirect('/wiki');
 });
 
 const connect = async () => {
