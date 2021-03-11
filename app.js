@@ -3,7 +3,12 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const layout = require('./views/layout')
+const router = require('./routes/users')
+const wikiRouter = require('./routes/wiki')
 const { db, Page, User } = require('./models');
+
+app.use('/wiki', wikiRouter);
+app.use('/users', router);
 
 db.authenticate()
   .then(() => {
