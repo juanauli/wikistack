@@ -7,6 +7,8 @@ const usersRouter = require('./routes/users')
 const wikiRouter = require('./routes/wiki')
 const { db, Page, User } = require('./models');
 
+const PORT = 3000;
+
 db.authenticate()
   .then(() => {
     console.log('connected to the database');
@@ -26,10 +28,7 @@ app.get("/", (req, res, next) => {
 });
 
 const connect = async () => {
-  // await db.sync({force: true});
-  await db.sync();
-
-  const PORT = 3000;
+  await db.sync({force: true});
 
   app.listen(PORT, () => {
   console.log(`App listening in port--> http://localhost:${PORT}`)
@@ -38,3 +37,4 @@ const connect = async () => {
 
 connect();
 
+module.exports = PORT;

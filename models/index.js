@@ -39,6 +39,7 @@ const User = db.define('user', {
   }
 });
 
+// User.hasMany(Page);
 Page.belongsTo(User, { as: 'author' });
 
 Page.addHook('beforeValidate', (page, options) => {
