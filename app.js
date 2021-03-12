@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const layout = require('./views/layout')
-const router = require('./routes/users')
+const usersRouter = require('./routes/users')
 const wikiRouter = require('./routes/wiki')
 const { db, Page, User } = require('./models');
 
@@ -19,14 +19,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/wiki', wikiRouter);
-app.use('/users', router);
+app.use('/users', usersRouter);
 
 app.get("/", (req, res, next) => {
   res.redirect('/wiki');
 });
 
 const connect = async () => {
-  await db.sync({force: true});
+  // await db.sync({force: true});
+  await db.sync();
 
   const PORT = 3000;
 

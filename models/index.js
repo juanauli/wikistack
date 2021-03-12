@@ -17,7 +17,6 @@ const Page = db.define('page', {
   content: {
     type: Sequelize.TEXT,
     allowNull: false,
-    unique: true
   },
   status: {
     type: Sequelize.ENUM('open', 'closed')
@@ -38,6 +37,12 @@ const User = db.define('user', {
         isEmail: true
     }
   }
+});
+
+Page.belongsTo(User, { as: 'author' });
+
+Page.addHook('beforeValidate', (page, options) => {
+  page.slug = page.title.replace(/\s+/g, '_').replace(/\W/g, '');
 });
 
 module.exports = { db, Page, User };
